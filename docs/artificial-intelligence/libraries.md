@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Tools 
@@ -90,13 +90,15 @@ Google Colab adalah platform berbasis cloud yang memungkinkan kita untuk menulis
 
 Visual Studio Code merupakan sebuah IDE yang biasa digunakan dalam development aplikasi. Namun, VS Code memiliki ekstensi Jupyter Notebook yang memungkinkan kita melakukan proses proses yang biasa kita lakukan di Jupyter Notebook di dalam VS Code. 
 
-Untuk setup Jupyter Notebook pada VS Code kita perlu melakukan instalasi VS Code terlebih dahulu, download VS Code pada: https://code.visualstudio.com/download
+Untuk setup Jupyter Notebook pada VS Code kita perlu melakukan instalasi VS Code terlebih dahulu 
 
-Setelah melakukan instalasi VS Code, jangan lupa juga install Python dan package `jupyter` seperti cara diatas.
+1. Download VS Code pada: https://code.visualstudio.com/download
 
-Setelah menginstall VS Code dan Python, masuk ke VS Code dan klik bagian `extension`, cari **Jupyter Notebook** dan install extensionnya.
+2. Setelah melakukan instalasi VS Code, jangan lupa juga install Python dan package `jupyter` seperti cara diatas.
 
-Terakhir, buat file dengan ekstensi `.ipynb` dan run projekmu
+3. Setelah menginstall VS Code dan Python, masuk ke VS Code dan klik bagian `extension`, cari **Jupyter Notebook** dan install extensionnya.
+
+4. Terakhir, buat file dengan ekstensi `.ipynb` dan run projekmu
 
 ## Python Library
 

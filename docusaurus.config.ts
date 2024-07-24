@@ -85,7 +85,7 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
+              label: 'What is Ristek HMIT Club?',
               to: '/docs/intro',
             },
           ],
@@ -121,7 +121,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ristek HMIT, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
