@@ -1,41 +1,17 @@
-# Website
+## Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Halo man teman Riztek HMIT 🤩,
 
-### Installation
+bisa kalian baca dokumentasi ini di [sini](https://github.com/Raditsoic/club-ristek/)
 
-```
-$ yarn
-```
+## License
 
-### Local Development
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-```
-$ yarn start
-```
+## Untuk instalasi
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+1. Clone repository ini `git clone https://github.com/Raditsoic/club-ristek.git`
+2. Buka terminal dan buka direktori `cd club-ristek`
+3. Install dependencies `npm install`
+4. Jalankan `npm run start`
+5. Buka browser dan buka `http://localhost:3000`
