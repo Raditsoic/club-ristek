@@ -13,7 +13,7 @@ Artificial Intelligence adalah teknologi pada bidang ilmu komputer yang dirancan
 
 ## But, How does it work?
 
-Simpelnya, cara kerja AI secara umum adalah dengan menggabungkan kumpulan data dengan ilmu komputer. Selanjutnya, AI ini akan menyerap sejumlah data lalu menganalisanya untuk mengidentifikasikan pengenalan pola. Nah, dari pola itu kita bisa menentukan decision apa yang bakal kita lakukan selanjutnya.
+Simpelnya, cara kerja AI secara umum adalah dengan menggabungkan kumpulan data dengan ilmu komputer. Selanjutnya, AI ini akan menyerap sejumlah data lalu menganalisanya untuk mengidentifikasi pola dari data tersebut. Nah, dari pola itu kita bisa menentukan decision apa yang bakal kita lakuin selanjutnya.
 
 ![AI Works](img/ai-works.png)
 
