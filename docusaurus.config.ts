@@ -61,11 +61,6 @@ const config: Config = {
           label: 'Docs',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/raditsoic',
-          label: 'GitHub',
-          position: 'right',
-        },
       ],
     },
     footer: {
@@ -103,10 +98,6 @@ const config: Config = {
             {
               label: 'Blog',
               to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/raditsoic',
             },
           ],
         },
