@@ -2,10 +2,6 @@ ristek:
   label: Ristek
   permalink: /ristek
   description: Departemen brainrot HMIT ITS
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
 HMIT:
   label: HMIT
   permalink: /hmit

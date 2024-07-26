@@ -1,8 +1,6 @@
 ---
-slug: welcome
-title: Welcome
-authors: [awan]
+slug: "ristek-hmit-blog"
+title: "BLOG RISTEK HMIT"
+authors: []
 tags: [ristek, HMIT]
 ---
-
-First Blog of Ristek HMIT
