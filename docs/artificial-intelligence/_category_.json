@@ -1,8 +1,8 @@
 {
-    "label": "Artificial Intelligence",
-    "position": 2,
-    "link": {
-      "type": "generated-index",
-      "description": "HMIT Artificial Intelligence Club's Repository"
-    }
+  "label": "Artificial Intelligence",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "HMIT Artificial Intelligence Club's Repository"
   }
+}

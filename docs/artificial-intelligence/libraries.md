@@ -2,8 +2,7 @@
 sidebar_position: 2
 ---
 
-Tools 
-=====
+# Tools
 
 Tools and libraries for Artificial Intelligence
 
@@ -16,42 +15,47 @@ Yap, Python. Kenapa python?? Python digunakan dalam Machine Learning, Deep Learn
 - Selain digunakan untuk AI/ML Python juga bisa digunakan untuk App Development
 - Banyak riset yang menggunakan Python
 
-Download Python: https://www.python.org/downloads/ 
+Download Python: https://www.python.org/downloads/
 
 > Note: Disarankan untuk install python versi 3.9 - 3.11
- 
+
 ## Development Environment
+
 Development environment adalah software yang digunakan untuk menulis, menguji, dan men-debug aplikasi. Development environtment biasa terdapat beberapa alasan yaitu teks editor, package manager, debugger, dan compiler.
 
 ### Anaconda
 
 Anaconda adalah sebuah software environtment manager yang sering digunakan dalam proses development AI. Anaconda bisa disebut sebagai virtual environtment dimana setiap project memiliki dependensi dan versi masing masing. Download anaconda pada link berikut: https://docs.anaconda.com/anaconda/install/
 
-Untuk menggunakan Anaconda environtment pada Anaconda terminal kita bisa menginisialisasikan environtment. 
+Untuk menggunakan Anaconda environtment pada Anaconda terminal kita bisa menginisialisasikan environtment.
+
 ```bash
 conda create --name <nama> python=3.8
 ```
 
 Setelah menginisialisasikan kita bisa mengaktifkan environtment tersebut.
+
 ```bash
 conda activate <nama>
 ```
 
 Di dalam environtment kita bisa menginstall library dan tools tools yang tersedia.
+
 ```bash
 conda install numpy pandas matplotlib
 ```
 
 Untuk keluar dari environtment kita bisa deactive conda.
+
 ```bash
 conda deactivate
 ```
 
 ### Jupyter Notebook
 
-Jupyter Notebook adalah suatu aplikasi web open-source yang memungkinkan pengguna untuk melakukan pemrograman, visualisasi dan teks dalam satu teks editor secara bersamaan. Jupyter Notebook bekerja dengan cara membagi setiap blok kode dan teks ke dalam suatu blok yang disebut cell. 
+Jupyter Notebook adalah suatu aplikasi web open-source yang memungkinkan pengguna untuk melakukan pemrograman, visualisasi dan teks dalam satu teks editor secara bersamaan. Jupyter Notebook bekerja dengan cara membagi setiap blok kode dan teks ke dalam suatu blok yang disebut cell.
 
-- Cell kode yang digunakan dalam Jupyter Notebook adalah biasanya bebasis Python, namun juga bisa dikostumisasi dengan bahasa pemrograman lain dan 
+- Cell kode yang digunakan dalam Jupyter Notebook adalah biasanya bebasis Python, namun juga bisa dikostumisasi dengan bahasa pemrograman lain dan
 - Cell teks dalam Jupyter Notebook berbasis Markdown
 - Bisa memvisualisasikan suatu gambar, grafik dan lainnya
 
@@ -62,6 +66,7 @@ pip install jupyter
 ```
 
 Selanjutnya untuk mengakses aplikasi kita bisa menggunakan:
+
 ```pwsh
 jupyter notebook
 ```
@@ -88,9 +93,9 @@ Google Colab adalah platform berbasis cloud yang memungkinkan kita untuk menulis
 
 ### Visual Studio Code
 
-Visual Studio Code merupakan sebuah IDE yang biasa digunakan dalam development aplikasi. Namun, VS Code memiliki ekstensi Jupyter Notebook yang memungkinkan kita melakukan proses proses yang biasa kita lakukan di Jupyter Notebook di dalam VS Code. 
+Visual Studio Code merupakan sebuah IDE yang biasa digunakan dalam development aplikasi. Namun, VS Code memiliki ekstensi Jupyter Notebook yang memungkinkan kita melakukan proses proses yang biasa kita lakukan di Jupyter Notebook di dalam VS Code.
 
-Untuk setup Jupyter Notebook pada VS Code kita perlu melakukan instalasi VS Code terlebih dahulu 
+Untuk setup Jupyter Notebook pada VS Code kita perlu melakukan instalasi VS Code terlebih dahulu
 
 1. Download VS Code pada: https://code.visualstudio.com/download
 
