@@ -2,6 +2,7 @@ export type FeatureItem = {
     title: string;
     png: string;
     description: JSX.Element;
+    href: string;
 };
 
 export const FeatureList: FeatureItem[] = [
@@ -14,6 +15,7 @@ export const FeatureList: FeatureItem[] = [
                 atau bikin robot aja ya?
             </>
         ),
+        href: '/docs/category/artificial-intelligence',
     },
     {
         title: 'Cyber Security',
@@ -23,6 +25,7 @@ export const FeatureList: FeatureItem[] = [
                 Mau ngehack mantan? Mau kerja di Kominfo? Watch Dogs Simulator? Cyber Security aja gasih?
             </>
         ),
+        href: '/docs/category/cyber-security',
     },
     {
         title: 'Internet of Things',
@@ -32,6 +35,7 @@ export const FeatureList: FeatureItem[] = [
                 Mau masuk Teknik Komputer tapi ga kesampaian? Mau bikin jebakan buat adek dirumah? IoT solusi mu dek.
             </>
         ),
+        href: '/docs/category/iot',
     },
     {
         title: 'Web Development',
@@ -42,5 +46,6 @@ export const FeatureList: FeatureItem[] = [
                 Web Dev jawabannya.
             </>
         ),
+        href: '/docs/category/web-development',
     },
 ];
