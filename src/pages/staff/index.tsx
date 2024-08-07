@@ -9,12 +9,10 @@ export default function PageHEHEH() {
             title="STAFF HMIT"
             description="Ristek HMIT Club"
         >
-            <div
-                id="__docusaurus_skipToContent_fallback"
-                className="main-wrapper mainWrapper_node_modules-@docusaurus-theme-classic-lib-theme-Layout-styles-module">
+            <div>
                 <div className="container margin-vert--lg">
                     <div className="row">
-                        <main className="col col--7">
+                        <main className="col col--12">
                             <article className="margin-bottom--xl">
                                 <header>
                                     <h2 className="title_node_modules-@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Title-styles-module margin-bottom--md">

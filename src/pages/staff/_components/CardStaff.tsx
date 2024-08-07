@@ -5,10 +5,10 @@ import { dataStaff } from '../_data/data-staff'
 export default function CardStaff() {
     return (
         <>
-            <div className="margin-top--md margin-bottom--sm row">
+            <div className="margin-top--md margin-bottom--sm row" style={{ gap: '1rem' }}>
                 {
                     dataStaff.map((staff, idx) => (
-                        <div className="col col--6 authorCol_node_modules-@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Authors-styles-module">
+                        <div className="col col--4">
                             <div className="avatar margin-bottom--sm" key={idx}>
                                 <Link href={staff.github}
                                     target="_blank" rel="noopener noreferrer"
