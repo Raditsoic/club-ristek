@@ -29,6 +29,13 @@ Label/Target merupakan variabel dependen atau biasa disebut output dari model ya
 
 Model Machine Learning merupakan adalah representasi matematika melakukan pemetaan feature-feature yang kita miliki untuk menghasilkan output berupa prediksi. Simpelnya, model adalah sebuah fungsi matematika. Dalam Machine Learning, model harus dilatih terlebih dahulu supaya model tersebut belajar dari pola-pola data yang kita miliki.
 
+![model type](img/ml-type.png)
+
+Model juga memiliki beberapa tipe belajar, diantaranya:
+- **Supervised learning**: Model dilatih pada data berlabel, di mana feature input (X) dan label output (Y). Tujuannya adalah untuk mempelajari hubungan dari input ke output sehingga dapat memprediksi label untuk data yang baru.
+- **Unsupervised Learning**: model dilatih pada data yang tidak berlabel, yang berarti tidak ada label output. Tujuannya adalah untuk menemukan pola, struktur, atau hubungan dalam data.
+- **Reinforcement Learning**: Model belajar dengan berinteraksi dengan lingkungan. Model ini menerima feedback dalam bentuk `hadiah` atau `hukuman` berdasarkan tindakan yang dilakukannya. Cara kerjanya adalah untuk mempelajari hal yang benar dari memaksimalkan `hadiah` kumulatif dari waktu ke waktu.
+
 ### Training & Testing
 
 Training adalah proses sebuah model untuk belajar dari data yang biasa disebut **Training Set** yang kita miliki sehingga dapat memahami hubungan antara feature dan label. Cara kerja belajar adalah dengan menyesuaikan `weights` atau `parameter` berdasarkan kesalahan yang dilakukan model sebelumnya.
@@ -69,7 +76,9 @@ Setelah memilih model, kita bisa melakukan training model dengan *Training Set* 
 
 Model yang telah kita buat bisa digunakan untuk melakukan prediksi dan digunakan sesuai dengan masalah yang kita miliki. Jika model kita tidak sesuai dengan yang kita inginkan, kita bisa mengupdate dan training kembali model tersebut.
 
+## References
 
-
+- https://www.datacamp.com/blog/a-beginner-s-guide-to-the-machine-learning-workflow
+- https://idapgroup.com/blog/types-of-machine-learning-out-there/
 
 
