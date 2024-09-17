@@ -446,7 +446,7 @@ xgb_model.fit(X_train, y_train)
 y_pred = xgb_model.predict(X_test)
 ```
 
-#### Evaluate
+### Evaluate
 
 ```python
 # Evaluating the model

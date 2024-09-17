@@ -33,6 +33,14 @@ Setiap kumpulan data memiliki tipe data dan isi yang berbeda-beda, kita harus me
 
 ![Data Visualization](img/vis-types.png)
 
+Untuk membantu visualisasi, kita bisa memiliki beberapa panduan yang bisa kita ikuti seperti:
+- Data numerik yang memiliki 1 variabel kita bisa menggunakan histogram atau density plot.
+- Data numerik yang memiliki 2 variabel kita bisa menggunakan Scatter Plot atau, Line Plot dan juga Box Plot.
+- Data kategorikal yang memiliki 1 variabel bisa kita visualisasikan dengan Bar Plot dan Lolipop
+- Data Kategorikal yang memiliki 2 variabel atau lebih bisa divisualisasikan dengan Diagram Venn, Heatmap, ataupun Grouped Bar Plot.
+- Untuk panduan yang lebih lengkap bisa diakses di link <a src="https://www.data-to-viz.com/">Data-to-Viz</a> dan <a src="https://datavizcatalogue.com/index.html">Datavizcatalogue</a>
+
+
 ### Focus on Clarity
 
 Visualisasi yang baik adalah yang jelas, ringkas, dan mudah dipahami. Ada beberapa hal yang patut dipahami:
@@ -102,9 +110,18 @@ Correlation Matrix adalah sebuah tabel yang menunjukkan koefisien korelasi antar
 
 - Power BI: Software dari Microsoft untuk membuat visualisasi interaktif dan laporan bisnis.
 
-- Microsoft Excel & Google Sheets
+- Microsoft Excel: Software yang dibuat oleh Microsoft dengan fitur seperti pivot table, macro, formula/fungsi untuk data analisis. 
 
-## Referensi
+- Google Sheets: Versi cloud dari Excel yang mendukung kolaborasi secara real-time. 
+
+- Metabase: Software Bussiness Intelligence (BI) yang bisa digunakan untuk eksplor data dan memvisualisasi data tanpa membutuhkan keterampilan SQL yang mahir.
+
+- Looker Studio: Alat visualisasi yang membantu user untuk membuat laporan dan dashboard interaktif dengan menghubungkan ke berbagai sumber data.
+
+## References
 - https://online.hbs.edu/blog/post/data-visualization-techniques
 - https://www.activityinfo.org/blog/posts/2023-06-29-best-practices-for-data-visualization-in-monitoring-and-evaluation.html
 - https://www.atlassian.com/data/charts/how-to-choose-data-visualization
+- https://python-graph-gallery.com/
+- https://www.data-to-viz.com
+- https://datavizcatalogue.com/index.html 
