@@ -247,4 +247,221 @@ print(comparison)
 
 ## Steps in Classification
 
+### Data Collection
+
+Data yang kita gunakan bisa berasal dari mana saja dan berbentuk apapun. Namun, pada blog ini kita akan menggunakan dataset dari kaggle <a src="https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset">berikut</a>.
+
+Pada dataset ini kita akan memprediksi seseorang mengidap diabetes atau tidak dengan memanfaatkan beberapa fitur diantaranya adalah:
+- Umur
+- Gender
+- BMI
+- Sejarah Merokok
+- Hipertensi
+- Penyakit Jantung
+- Kadar Gula
+
+### Data Cleaning
+
+#### Handle Missing Values
+
+```python
+df.isnull().sum()
+```
+#### Handle Duplicate
+
+```python
+print(f"Duplicate: {df.duplicated().sum()}")
+df = df.drop_duplicates()
+```
+
+### Data Visualization
+
+```python
+def add_counts(ax):
+    for p in ax.patches:
+        ax.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()), 
+                    ha='center', va='center', fontsize=10, color='black', xytext=(0, 5), 
+                    textcoords='offset points')
+
+fig, axes = plt.subplots(3, 2, figsize=(15, 15))
+
+# Plot gender grouped by diabetes
+ax = sns.countplot(ax=axes[0, 0], x='gender', hue='diabetes', data=df)
+axes[0, 0].set_title('Gender grouped by Diabetes')
+add_counts(ax)
+
+# Plot hypertension grouped by diabetes
+ax = sns.countplot(ax=axes[0, 1], x='hypertension', hue='diabetes', data=df)
+axes[0, 1].set_title('Hypertension grouped by Diabetes')
+add_counts(ax)
+
+# Plot heart disease grouped by diabetes
+ax = sns.countplot(ax=axes[1, 0], x='heart_disease', hue='diabetes', data=df)
+axes[1, 0].set_title('Heart Disease grouped by Diabetes')
+add_counts(ax)
+
+# Plot smoking history grouped by diabetes
+ax = sns.countplot(ax=axes[1, 1], x='smoking_history', hue='diabetes', data=df)
+axes[1, 1].set_title('Smoking History grouped by Diabetes')
+add_counts(ax)
+
+# Plot diabetes
+ax = sns.countplot(ax=axes[2, 0], x='diabetes', data=df)
+axes[2, 0].set_title('Diabetes Count')
+add_counts(ax)
+
+# Create pie plot for diabetes
+diabetes_counts = df['diabetes'].value_counts()
+axes[2, 1].pie(diabetes_counts, labels=diabetes_counts.index, autopct='%1.1f%%', startangle=90)
+axes[2, 1].set_title('Diabetes Distribution')
+axes[2, 1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+axes[2, 1].legend(title='Diabetes:', loc='upper right')
+
+plt.tight_layout()
+plt.show()
+```
+
+```python
+min_age = df['age'].min()
+max_age = df['age'].max()
+avg_age = df['age'].mean()
+
+# Count of individuals with and without diabetes
+diabetes_counts = df['diabetes'].value_counts()
+
+# Group by diabetes status and calculate min and max ages
+grouped_ages = df.groupby('diabetes')['age'].agg(['min', 'max'])
+
+print(f"Minimum age: {min_age}")
+print(f"Maximum age: {max_age}")
+print(f"Average age: {avg_age}")
+print("Diabetes Counts:")
+print(diabetes_counts)
+print("Age Statistics by Diabetes Status:")
+print(grouped_ages)
+
+fig, ax = plt.subplots(1, 2, figsize=(14, 6))
+
+# Plot for overall min, max, and average age
+bars = ax[0].bar(['Min Age', 'Max Age', 'Avg Age'], [min_age, max_age, avg_age], color=['blue', 'red', 'green'])
+ax[0].set_title('Overall Age Statistics')
+ax[0].set_ylabel('Age')
+
+# Annotate bars with their values
+for bar in bars:
+    yval = bar.get_height()
+    ax[0].text(bar.get_x() + bar.get_width()/2, yval, round(yval, 2), va='bottom')  # Add text to the top of the bars
+
+# Plot for min and max ages grouped by diabetes status
+grouped_bars = grouped_ages.plot(kind='bar', ax=ax[1])
+ax[1].set_title('Age Statistics by Diabetes Status')
+ax[1].set_ylabel('Age')
+
+# Annotate bars with their values
+for p in grouped_bars.patches:
+    grouped_bars.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+
+plt.tight_layout()
+plt.show()
+```
+
+### Data Preprocessing
+
+#### Encoding
+
+```python
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['gender'] = le.fit_transform(df['gender'])
+df['smoking_history'] = le.fit_transform(df['smoking_history'])
+```
+
+#### Scaling
+
+```python
+features = ['gender', 'age', 'hypertension', 'heart_disease', 'smoking_history', 'bmi', 'HbA1c_level', 'blood_glucose_level']
+X = df[features]
+y = df['diabetes']
+
+# Standardizing the features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+```
+
+#### Pricipal Component Analysis (PCA)
+
+```python
+pca = PCA()
+X_pca = pca.fit_transform(X_scaled)
+
+# Plotting the cumulative explained variance
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, len(pca.explained_variance_ratio_) + 1), 
+         pca.explained_variance_ratio_.cumsum(), marker='o', linestyle='--')
+plt.title('Explained Variance by Number of Principal Components')
+plt.xlabel('Number of Principal Components')
+plt.ylabel('Cumulative Explained Variance')
+plt.grid()
+
+# Find the index of the maximum cumulative explained variance
+max_index = pca.explained_variance_ratio_.cumsum().argmax()
+
+# Annotate the point with the highest cumulative explained variance
+plt.annotate(f'Max: PC {max_index + 1}',
+             xy=(max_index + 1, pca.explained_variance_ratio_.cumsum()[max_index]),
+             xytext=(max_index + 2, pca.explained_variance_ratio_.cumsum()[max_index] - 0.05),
+             arrowprops=dict(facecolor='black', arrowstyle='->', color='black'))
+
+plt.show()
+
+# Printing explained variance ratios
+for i, ratio in enumerate(pca.explained_variance_ratio_.cumsum()):
+    print(f'Principal Component {i+1}: {ratio:.4f} cumulative explained variance')
+
+# Choose the number of components that explain most of the variance
+n_components = max_index + 1
+
+# Applying PCA with the optimal number of components
+pca = PCA(n_components=n_components)
+X_pca = pca.fit_transform(X_scaled)
+```
+
+#### Splitting
+
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X_pca, y, test_size=0.2, random_state=42)
+```
+
+### Modelling
+
+```python
+from xgboost import XGBoostClassifier
+
+xgb_model = XGBClassifier(random_state=42)
+xgb_model.fit(X_train, y_train)
+
+# Making predictions
+y_pred = xgb_model.predict(X_test)
+```
+
+#### Evaluate
+
+```python
+# Evaluating the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f'XGBoost Accuracy: {accuracy:.4f}')
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+# Plotting the confusion matrix
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['No Diabetes', 'Diabetes'], yticklabels=['No Diabetes', 'Diabetes'])
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.show()
+```
+
+
 
