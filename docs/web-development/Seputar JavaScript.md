@@ -1,9 +1,9 @@
-# Seputar JavaScript
+# Modul 2 - Java Script
 
 ## 1. JavaScript Basics
 
-JavaScript adalah bahasa pemrograman yang digunakan untuk menambahkan interaktivitas dan logika ke halaman web.
-Dalam modul ini, kita akan mempelajari dasar-dasar JavaScript.
+JavaScript adalah bahasa pemrograman yang digunakan untuk menambahkan interaksi dan logika ke halaman web.
+Dalam modul ini, klean akan mempelajari dasar-dasar JavaScript.
 
 ### 1.1. Menambahkan JavaScript ke HTML
 
@@ -26,12 +26,12 @@ Dalam modul ini, kita akan mempelajari dasar-dasar JavaScript.
 3. **External JavaScript**: Menghubungkan file eksternal.
 
    ```html
-   <script src="script.js"></script>
+   <script src="./script.js"></script>
    ```
 
 ### 1.2. Sintaks Dasar
 
-- **Variabel**: Menggunakan `var`, `let`, dan `const`.
+- **Variabel**: Menggunakan `let`, dan `const`. (kenapa nggada `var` mas?, karena rekom masa sekarang better `let` dan `const` yeah)
 
   ```javascript
   let name = "Alice"; // variabel yang dapat diubah
@@ -115,23 +115,107 @@ Dalam modul ini, kita akan mempelajari dasar-dasar JavaScript.
   }
   ```
 
+### 1.6. Menggunakan Local Storage
+
+**Local Storage** adalah penyimpanan di browser yang memungkinkan klean menyimpan data secara permanen di sisi klien (hingga dihapus secara manual oleh pengguna).
+
+#### 1.6.1. Menyimpan Data ke Local Storage
+
+Untuk menyimpan data ke local storage, gunakan metode `localStorage.setItem()`. Metode ini menerima dua parameter: kunci (key) dan nilai (value).
+
+Contoh menyimpan data:
+
+```javascript
+localStorage.setItem("username", "Alice");
+
+const user = {
+  name: "Alice",
+  age: 25,
+};
+localStorage.setItem("user", JSON.stringify(user));
+```
+
+#### 1.6.2. Mengambil Data dari Local Storage
+
+Untuk mengambil data yang telah disimpan di local storage, gunakan metode `localStorage.getItem()`. Jika datanya adalah string yang di-encode sebagai JSON, gunakan `JSON.parse()` untuk mengubahnya kembali ke objek JavaScript.
+
+Contoh mengambil data:
+
+```javascript
+const username = localStorage.getItem("username");
+console.log(username); // Output: Alice
+
+const user = JSON.parse(localStorage.getItem("user"));
+console.log(user.name); // Output: Alice
+```
+
+#### 1.6.3. Menghapus Data dari Local Storage
+
+Gunakan `localStorage.removeItem()` untuk menghapus item tertentu dari local storage.
+
+Contoh menghapus data:
+
+```javascript
+localStorage.removeItem("username");
+```
+
+Untuk menghapus semua data yang tersimpan di local storage, gunakan `localStorage.clear()`:
+
+```javascript
+localStorage.clear();
+```
+
 ## 2. Intermediate JavaScript
 
-Setelah memahami dasar-dasar, kita akan melanjutkan ke konsep yang lebih kompleks.
+Setelah memahami dasar-dasar, klean akan melanjutkan ke konsep yang lebih kompleks.
 
 ### 2.1. Arrays
 
 - **Mendefinisikan Array**:
 
   ```javascript
-  let fruits = ["apple", "banana", "orange"];
+  let fruits = [🍏, 🍉, 🍊];
   ```
 
 - **Manipulasi Array**:
 
   ```javascript
-  fruits.push("grape"); // Menambah elemen
+  fruits.push(🍇); // Menambah elemen
   fruits.pop(); // Menghapus elemen terakhir
+  ```
+
+- **Menambah dan Menghapus Elemen di Awal Array**:
+
+  ```javascript
+  fruits.unshift(🍊); // Menambah elemen di awal array
+  fruits.shift(); // Menghapus elemen pertama
+  ```
+
+- **Menggabungkan Dua Array**:
+
+  ```javascript
+  const moreFruits = [🍏, 🍉,];
+  const allFruits = fruits.concat(moreFruits);
+  ```
+
+- **Mengakses Elemen dengan `indexOf` dan `includes`**:
+
+  ```javascript
+  const index = fruits.indexOf(🍏); // Mengembalikan index dari '🍏'
+  const hasApple = fruits.includes(🍏); // Mengecek apakah array memiliki '🍏'
+  ```
+
+- **Menggunakan `slice` untuk Mengambil Subset**:
+
+  ```javascript
+  const someFruits = fruits.slice(1, 3); // Mengambil elemen dari index 1 hingga sebelum 3
+  ```
+
+- **Menggunakan `splice` untuk Menambah/Menghapus Elemen di Posisi Tertentu**:
+
+  ```javascript
+  fruits.splice(2, 0, 🍏); // Menambah 🍏 di index 2 tanpa menghapus elemen
+  fruits.splice(1, 1); // Menghapus 1 elemen mulai dari index 1
   ```
 
 - **Looping Melalui Array**:
@@ -154,6 +238,13 @@ Setelah memahami dasar-dasar, kita akan melanjutkan ke konsep yang lebih komplek
       return `Hello, ${this.name}`;
     },
   };
+  let work = {
+    name: "Lorem Ipsum",
+    position: "Software Engineer",
+    greet: () => {
+      return `Hello, ${work.name}`;
+    },
+  };
   ```
 
 - **Akses Properti**:
@@ -161,6 +252,9 @@ Setelah memahami dasar-dasar, kita akan melanjutkan ke konsep yang lebih komplek
   ```javascript
   console.log(person.name); // Mengakses dengan titik
   console.log(person["age"]); // Mengakses dengan bracket
+  console.log(work.name); // Mengakses dengan titik
+  console.log(work["position"]); // Mengakses dengan bracket
+  console.log(work.greet()); // Mengakses dengan bracket
   ```
 
 ### 2.3. DOM Manipulation
@@ -188,9 +282,38 @@ Setelah memahami dasar-dasar, kita akan melanjutkan ke konsep yang lebih komplek
   });
   ```
 
+### 2.4. Manipulasi DOM Lanjutan
+
+#### 2.4.1. Membuat Elemen dengan `createElement`
+
+klean bisa membuat elemen HTML secara dinamis menggunakan metode `document.createElement()`. Setelah elemen dibuat, klean dapat menambahkannya ke dalam DOM menggunakan `appendChild()` atau `append()`.
+
+Contoh membuat elemen dan menambahkannya ke halaman:
+
+```javascript
+const newParagraph = document.createElement("p");
+
+newParagraph.textContent =
+  "Ini paragraf baru yang dibuat dengan createElement.";
+
+document.body.appendChild(newParagraph);
+```
+
+#### 2.4.2. Menggunakan `innerHTML` untuk Mengubah Konten
+
+`innerHTML` memungkinkan klean untuk mengubah atau menyisipkan HTML ke dalam elemen (awas **XSS** puhh ).
+
+Contoh menggunakan `innerHTML`:
+
+```javascript
+const content = document.getElementById("content");
+content.innerHTML =
+  "<h1>Judul Baru</h1><p>Paragraf ini diubah dengan innerHTML.</p>";
+```
+
 ## 3. Advanced JavaScript
 
-Di bagian ini, kita akan mempelajari fitur dan konsep lanjutan dalam JavaScript.
+Di bagian ini, klean akan mempelajari fitur dan konsep lanjutan dalam JavaScript.
 
 ### 3.1. Asynchronous JavaScript
 
@@ -219,23 +342,30 @@ Di bagian ini, kita akan mempelajari fitur dan konsep lanjutan dalam JavaScript.
   fetchData();
   ```
 
-### 3.2. Modules
-
-- **Menggunakan Module**:
+- **Callback**:
 
   ```javascript
-  // myModule.js
-  export const name = "Alice";
-  export function greet() {
-    return `Hello, ${name}!`;
+  function fetchData(callback) {
+    setTimeout(() => {
+      const data = {
+        name: "Alice",
+        age: 24,
+        posistion: "Software Engineer",
+      };
+      callback(data);
+    }, 2000);
   }
 
-  // main.js
-  import { name, greet } from "./myModule.js";
-  console.log(greet());
+  function handleData(data) {
+    console.log(data);
+  }
+
+  fetchData(handleData);
   ```
 
-### 3.3. Error Handling
+Fungsi `fetchData` menerima fungsi callback (`handleData`) sebagai argumen, yang kemudian dipanggil setelah `setTimeout` selesai dan `data` siap digunakan.
+
+### 3.2. Error Handling
 
 - **Try-Catch**:
 
@@ -247,25 +377,26 @@ Di bagian ini, kita akan mempelajari fitur dan konsep lanjutan dalam JavaScript.
   }
   ```
 
-### 3.4. Closures
+### 3.3. Closures
 
 - **Contoh Closures**:
 
   ```javascript
-  function outerFunction() {
-    let outerVariable = "I'm outside!";
-    return function innerFunction() {
-      console.log(outerVariable);
+  function pesanKamuKeDia() {
+    const chatKamu = "Kamu dah tidur belum";
+    return function pesanYangDiaSukai() {
+      const chatYangDiaSukai = "Haii, sudah makan belum?";
+      console.log({ chatYangDiaBaca: chatYangDiaSukai });
     };
   }
 
-  const inner = outerFunction();
-  inner(); // Output: "I'm outside!"
+  const hasil = pesanKamuKeDia();
+  hasil(); // Output: "Haii, sudah makan belum?"
   ```
 
 ## 4. Expert JavaScript
 
-Pada level ini, kita akan diberikan topik-topik lanjutan dan praktik JavaScript.
+Pada level ini, klean akan diberikan topik-topik lanjutan dan praktik JavaScript.
 
 ### 4.1. Functional Programming
 
@@ -286,34 +417,7 @@ Pada level ini, kita akan diberikan topik-topik lanjutan dan praktik JavaScript.
   const sum = numbers.reduce((acc, num) => acc + num, 0);
   ```
 
-### 4.2. Prototypal Inheritance
-
-- **Inheritance dengan Prototipe**:
-
-  ```javascript
-  function Animal(name) {
-    this.name = name;
-  }
-
-  Animal.prototype.speak = function () {
-    console.log(`${this.name} makes a noise.`);
-  };
-
-  function Dog(name) {
-    Animal.call(this, name);
-  }
-
-  Dog.prototype = Object.create(Animal.prototype);
-  Dog.prototype.bark = function () {
-    console.log(`${this.name} barks.`);
-  };
-
-  const dog = new Dog("Buddy");
-  dog.speak(); // Output: "Buddy makes a noise."
-  dog.bark(); // Output: "Buddy barks."
-  ```
-
-### 4.3. Event Delegation
+### 4.2. Event Delegation
 
 - **Menggunakan Event Delegation**:
 
@@ -325,25 +429,7 @@ Pada level ini, kita akan diberikan topik-topik lanjutan dan praktik JavaScript.
   });
   ```
 
-### 4.4. Design Patterns
-
-- **Module Pattern**:
-
-  ```javascript
-  const Module = (function () {
-    let privateVariable = "I'm private";
-
-    return {
-      getPrivate: function () {
-        return privateVariable;
-      },
-    };
-  })();
-
-  console.log(Module.getPrivate()); // Output: "I'm private"
-  ```
-
-### 4.5. Best Practices
+### 4.3. Best Practices
 
 - **Gunakan `let` dan `const` daripada `var`** untuk mendeklarasikan variabel
 - **Tulis kode yang bersih dan terorganisir** dengan mengikuti prinsip KISS
